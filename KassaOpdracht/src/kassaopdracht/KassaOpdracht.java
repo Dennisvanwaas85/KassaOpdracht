@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author L.A
+ * @author L.A , D.W
  */
 public class KassaOpdracht {
 
