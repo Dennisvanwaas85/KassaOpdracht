@@ -4,13 +4,14 @@
  * Written by Leslie Lauw <18151167> and Dennis van Waas <18>, October 2018
  * The Netherlands - The Hague University 
  * Class: 2B 
- * Group: 09 
+ * Group: 08
  */
 package kassaopdracht;
 
 
 
 import java.text.DecimalFormat;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -85,6 +86,8 @@ public class KassaOpdracht extends javax.swing.JDialog {
      * @param parent
      * @param modal
      */
+    
+    
     public KassaOpdracht(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
@@ -241,29 +244,68 @@ public class KassaOpdracht extends javax.swing.JDialog {
     }// </editor-fold>      
     
     //Method die geinitializeerd wordt als er op jButton1 wordt geklikt (dit gebeurt ook voor de andere buttons)
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {  
         
-        //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen
-        int input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Pizza. Voer de hoeveelheid in"));
- 
-        countPizza = countPizza + input; //De variabele wordt met het aantal verhoogd dat is ingevoerd 
-        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
-    }                                        
+    int input;
+    //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen     
+    try
+    {
+       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Pizza. Voer de hoeveelheid in"));
+       countPizza = countPizza + input;
+       JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+    }
+    catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
+    {
+        String message = "Vul een hoeveelheid in! (cijfer/nummer)";
+            JOptionPane.showMessageDialog(new JFrame(), message, "Error: geen cijfertje ingevult!",
+        JOptionPane.ERROR_MESSAGE);
+    }
+
+    }      
+    
     //Method die geinitializeerd wordt als er op jButton2 wordt geklikt
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        int input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Patat. Voer de hoeveelheid in"));
-        countPatat = countPatat + input;
-        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje");
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {  
         
-    }                                        
+    int input;
+    //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen     
+    try
+    {
+       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Patat. Voer de hoeveelheid in"));
+       countPatat = countPatat + input;
+       JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+    }
+    catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
+    {
+        String message = "Vul een hoeveelheid in! (cijfer/nummer)";
+            JOptionPane.showMessageDialog(new JFrame(), message, "Error: geen cijfertje ingevult!",
+        JOptionPane.ERROR_MESSAGE);
+    }
+    }
+    
     //Method die geinitializeerd wordt als er op jButton3 wordt geklikt
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        int input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Snoep. Voer de hoeveelheid in"));
-        countSnoep= countSnoep + input;
-        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje");
+    int input;
+    //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen     
+    try
+    {
+       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Snoep. Voer de hoeveelheid in"));
+       countSnoep = countSnoep + input;
+       JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+    }
+    catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
+    {
+        String message = "Vul een hoeveelheid in! (cijfer/nummer)";
+            JOptionPane.showMessageDialog(new JFrame(), message, "Error: geen cijfertje ingevult!",
+        JOptionPane.ERROR_MESSAGE);
+    }
         
-    }                                        
+    }     
+    
     //Method die geinitializeerd wordt als er op jButton4 wordt geklikt, deze method wordt gebruitk voor het afreken scherm
+    
     public void jButton4ActionPerformed(java.awt.event.ActionEvent evt   ) { 
         
                 double [] prijzenProducten2; //Nieuwe array 
@@ -353,37 +395,70 @@ public class KassaOpdracht extends javax.swing.JDialog {
           JOptionPane.showMessageDialog(null, "Volgende Klant!");
       }
   
-    }                                        
+    }     
+    
     //Method die geinitializeerd wordt als er op jButton5 wordt geklikt
+    
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-
-        int input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Kaas. Voer de hoeveelheid in"));
-        countKaas = countKaas + input;
-        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje");
-    }                                        
+    int input;
+    //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen     
+    try
+    {
+       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Kaas. Voer de hoeveelheid in"));
+       countKaas = countKaas + input;
+       JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+    }
+    catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
+    {
+        String message = "Vul een hoeveelheid in! (cijfer/nummer)";
+            JOptionPane.showMessageDialog(new JFrame(), message, "Error: geen cijfertje ingevult!",
+        JOptionPane.ERROR_MESSAGE);
+    }
+    }     
+    
     //Method die geinitializeerd wordt als er op jButton6 wordt geklikt
+    
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-
-        int input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Bier. Voer de hoeveelheid in"));
-        countBier = countBier + input;
-        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje");
+    int input;
+    //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen     
+    try
+    {
+       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Bier. Voer de hoeveelheid in"));
+       countBier = countBier + input;
+       JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+    }
+    catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
+    {
+        String message = "Vul een hoeveelheid in! (cijfer/nummer)";
+            JOptionPane.showMessageDialog(new JFrame(), message, "Error: geen cijfertje ingevult!",
+        JOptionPane.ERROR_MESSAGE);
+    }
         
-    }                                        
+    }    
+    
     //Method die geinitializeerd wordt als er op jButton7 wordt geklikt
+    
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
 
-        int input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Fruit. Voer de hoeveelheid in"));
-        countFruit = countFruit + input;
-        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje");
-
-        
-
-    }                                        
+    int input;
+    //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen     
+    try
+    {
+       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Fruit. Voer de hoeveelheid in"));
+       countFruit = countFruit + input;
+       JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+    }
+    catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
+    {
+        String message = "Vul een hoeveelheid in! (cijfer/nummer)";
+            JOptionPane.showMessageDialog(new JFrame(), message, "Error: geen cijfertje ingevult!",
+        JOptionPane.ERROR_MESSAGE);
+    }
+    }  
     
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }   
+    
     //Method die geinitializeerd wordt als er op jToggleButton1 wordt geklikt
+    
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {  
         
         //Korting staat by default uit
