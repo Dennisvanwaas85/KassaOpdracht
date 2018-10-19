@@ -53,7 +53,7 @@ public class KassaOpdracht extends javax.swing.JDialog {
         double [] prijzenProducten;
         
                prijzenProducten = new double [7];
-               prijzenProducten [0] = 6.00;
+               prijzenProducten [0] = 6.25;
                prijzenProducten [1] = 2.25;
                prijzenProducten [2] = 2.00;
                prijzenProducten [3] = 1.50;
@@ -179,11 +179,11 @@ public class KassaOpdracht extends javax.swing.JDialog {
             }
         });
         
-        jTextField1.setText(String.valueOf(tussenPrijs));
-        jTextField1.setFocusable(false);
-        
-        jTextArea2.setText("Prijs tot nu toe: €" + (tussenPrijzen()));
+
+        jTextArea2.setText("Prijs tot nu toe: € 0.00");
         jTextArea2.setFocusable(false);
+        
+
         
 
 
@@ -255,7 +255,8 @@ public class KassaOpdracht extends javax.swing.JDialog {
        countPizza = countPizza + input;
        
        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje");//Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
-        System.out.println(tussenPrijs);
+        jTextArea2.setText("Prijs tot nu toe: €" + (df2.format(tussenPrijzen())));
+        jTextArea2.setFocusable(false);
     }
     catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
     {
@@ -277,6 +278,8 @@ public class KassaOpdracht extends javax.swing.JDialog {
        input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Patat. Voer de hoeveelheid in"));
        countPatat = countPatat + input;
        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+       jTextArea2.setText("Prijs tot nu toe: €" + (df2.format(tussenPrijzen())));
+       jTextArea2.setFocusable(false);
     }
     catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
     {
@@ -296,6 +299,8 @@ public class KassaOpdracht extends javax.swing.JDialog {
        input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Snoep. Voer de hoeveelheid in"));
        countSnoep = countSnoep + input;
        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+       jTextArea2.setText("Prijs tot nu toe: €" + (df2.format(tussenPrijzen())));
+       jTextArea2.setFocusable(false);
     }
     catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
     {
@@ -328,8 +333,8 @@ public class KassaOpdracht extends javax.swing.JDialog {
         btwSubtotaal = tussenPrijzen() * 0.06;
         double btwOutput = btwSubtotaal; //Deze variables zijn aangemaakt zodat er een decimalformat aan gekoppeld kan worden
 
-        totaalPrijs = (tussenPrijzen() - kortingSubtotaal) + btwSubtotaal;
-        totaalPrijsGeenKorting = tussenPrijzen() + btwSubtotaal;
+        totaalPrijs = (tussenPrijzen() - kortingSubtotaal);
+        totaalPrijsGeenKorting = tussenPrijzen();
        
         double totaalPrijsOutput = totaalPrijsGeenKorting;
 
@@ -414,6 +419,8 @@ public class KassaOpdracht extends javax.swing.JDialog {
        input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Kaas. Voer de hoeveelheid in"));
        countKaas = countKaas + input;
        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+       jTextArea2.setText("Prijs tot nu toe: €" + (df2.format(tussenPrijzen())));
+       jTextArea2.setFocusable(false);
     }
     catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
     {
@@ -433,6 +440,8 @@ public class KassaOpdracht extends javax.swing.JDialog {
        input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Bier. Voer de hoeveelheid in"));
        countBier = countBier + input;
        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+       jTextArea2.setText("Prijs tot nu toe: €" + (df2.format(tussenPrijzen())));
+       jTextArea2.setFocusable(false);
     }
     catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
     {
@@ -454,6 +463,8 @@ public class KassaOpdracht extends javax.swing.JDialog {
        input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Fruit. Voer de hoeveelheid in"));
        countFruit = countFruit + input;
        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+       jTextArea2.setText("Prijs tot nu toe: €" + (df2.format(tussenPrijzen())));
+       jTextArea2.setFocusable(false);
     }
     catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
     {
