@@ -48,6 +48,39 @@ public class KassaOpdracht extends javax.swing.JDialog {
     private static final DecimalFormat df2 = new DecimalFormat(".##");
 
     
+    public static int [] aantalProducten(){
+    
+        int [] aantalProductenCount;
+            
+            aantalProductenCount = new int [6];
+            aantalProductenCount [0] = countPizza;
+            aantalProductenCount [1] = 0;
+            aantalProductenCount [2] = countSnoep;
+            aantalProductenCount [3] = countKaas;
+            aantalProductenCount [4] = countBier;
+            aantalProductenCount [5] = countFruit;
+            
+            return (aantalProductenCount);
+    
+    }
+    
+    public static String [] productenLijst(){
+        String [] productenLijstje;
+            
+            productenLijstje = new String [6];
+            productenLijstje [0] = "Pizza";
+            productenLijstje [1] = "Patat";
+            productenLijstje [2] = "Snoep";
+            productenLijstje [3] = "Kaas";
+            productenLijstje [4] = "Bier";
+            productenLijstje [5] = "Fruit";
+    
+    
+    
+        return (productenLijstje);
+    }
+    
+    
     //Method die de prijzen van de producten in een array zet
     public static  double [] prijzenArray(){
         double [] prijzenProducten;
@@ -247,12 +280,19 @@ public class KassaOpdracht extends javax.swing.JDialog {
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {  
         
+    String [] productenLijsteCall;
+    productenLijsteCall = productenLijst();
+    
+    int [] aantalProductenTelling;
+    aantalProductenTelling = aantalProducten();
+    
     int input;
     //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen     
     try
     {
-       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Pizza. Voer de hoeveelheid in"));
-       countPizza = countPizza + input;
+       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: " + productenLijsteCall [0]+ " Voer de hoeveelheid in"));
+       aantalProductenTelling[0] = aantalProductenTelling[0] + input;
+        System.out.println(aantalProductenTelling[0]);
        
        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje");//Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
         jTextArea2.setText("Prijs tot nu toe: €" + (df2.format(tussenPrijzen())));
@@ -271,12 +311,18 @@ public class KassaOpdracht extends javax.swing.JDialog {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {  
         
+    String [] productenLijsteCall;
+    productenLijsteCall = productenLijst();
+    
+    int [] aantalProductenTelling;
+    aantalProductenTelling = aantalProducten();
+    
     int input;
     //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen     
     try
     {
-       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Patat. Voer de hoeveelheid in"));
-       countPatat = countPatat + input;
+       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: " + productenLijsteCall [1] + ". Voer de hoeveelheid in"));
+       aantalProductenTelling[1] = aantalProductenTelling[1] + input;
        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
        jTextArea2.setText("Prijs tot nu toe: €" + (df2.format(tussenPrijzen())));
        jTextArea2.setFocusable(false);
@@ -291,13 +337,20 @@ public class KassaOpdracht extends javax.swing.JDialog {
     
     //Method die geinitializeerd wordt als er op jButton3 wordt geklikt
     
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {  
+        
+    String [] productenLijsteCall;
+    productenLijsteCall = productenLijst();
+    
+    int [] aantalProductenTelling;
+    aantalProductenTelling = aantalProducten();
+        
     int input;
     //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen     
     try
     {
-       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Snoep. Voer de hoeveelheid in"));
-       countSnoep = countSnoep + input;
+       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: " + productenLijsteCall [2] + ". Voer de hoeveelheid in"));
+       aantalProductenTelling[2] = aantalProductenTelling[2] + input;
        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
        jTextArea2.setText("Prijs tot nu toe: €" + (df2.format(tussenPrijzen())));
        jTextArea2.setFocusable(false);
@@ -314,6 +367,14 @@ public class KassaOpdracht extends javax.swing.JDialog {
     //Method die geinitializeerd wordt als er op jButton4 wordt geklikt, deze method wordt gebruitk voor het afreken scherm
     
     public void jButton4ActionPerformed(java.awt.event.ActionEvent evt   ) { 
+        
+        String [] productenLijsteCall;
+        productenLijsteCall = productenLijst();
+    
+      
+        int [] aantalProductenTelling;
+        aantalProductenTelling = aantalProducten();
+        
         
                 double [] prijzenProducten2; //Nieuwe array 
                 
@@ -340,16 +401,16 @@ public class KassaOpdracht extends javax.swing.JDialog {
 
 
         //Als korting aan staat komt dit op het bonnetje
-        
+        System.out.println(aantalProductenTelling[0]);
         String Enter = "\n";
         if (kortingToepassen ==true){
         textarea.setText(
-                (countPizza + "       Pizza" + "            € " + df2.format(countPizza * prijzenProducten2[0]))+ Enter+
-                (countPatat + "       Patat" + "            € " + df2.format(countPatat * prijzenProducten2[1]))+ Enter+ 
-                (countSnoep + "       Snoep" + "         € " + df2.format(countSnoep * prijzenProducten2[2]))+ Enter+
-                (countKaas + "       Kaas" + "           € " + df2.format(countKaas * prijzenProducten2[3]))+ Enter+
-                (countBier + "       Bier" + "              € " + df2.format(countBier * prijzenProducten2[4]))+ Enter+
-                (countFruit + "       Fruit" + "             € " + df2.format(countFruit * prijzenProducten2[5])) + Enter+
+                (aantalProductenTelling[0] + productenLijsteCall[0] + "            € " + df2.format(aantalProductenTelling[0] * prijzenProducten2[0]))+ Enter+
+                (aantalProductenTelling[1] + productenLijsteCall[1] + "            € " + df2.format(countPatat * prijzenProducten2[1]))+ Enter+ 
+                (countSnoep + productenLijsteCall[2] + "         € " + df2.format(countSnoep * prijzenProducten2[2]))+ Enter+
+                (countKaas + productenLijsteCall[3] + "           € " + df2.format(countKaas * prijzenProducten2[3]))+ Enter+
+                (countBier + productenLijsteCall[4] + "              € " + df2.format(countBier * prijzenProducten2[4]))+ Enter+
+                (countFruit + productenLijsteCall[5] + "             € " + df2.format(countFruit * prijzenProducten2[5])) + Enter+
                  Enter+
                  Enter+
                 "Subtotaal    "+ "          € " + subtotaal + Enter +
@@ -404,6 +465,8 @@ public class KassaOpdracht extends javax.swing.JDialog {
           jToggleButton1.setSelected(false);
           jToggleButton1.setText("Korting UIT!");
           jToggleButton1.setBackground(new java.awt.Color(255, 0, 0));
+          jTextArea2.setText("Prijs tot nu toe: € 0.00");
+          jTextArea2.setFocusable(false);
           JOptionPane.showMessageDialog(null, "Volgende Klant!");
       }
   
@@ -411,13 +474,20 @@ public class KassaOpdracht extends javax.swing.JDialog {
     
     //Method die geinitializeerd wordt als er op jButton5 wordt geklikt
     
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    String [] productenLijsteCall;
+    productenLijsteCall = productenLijst();
+    
+    int [] aantalProductenTelling;
+    aantalProductenTelling = aantalProducten();
+        
     int input;
     //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen     
     try
     {
-       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Kaas. Voer de hoeveelheid in"));
-       countKaas = countKaas + input;
+       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: " + productenLijsteCall [3] + ". Voer de hoeveelheid in"));
+       aantalProductenTelling[3] = aantalProductenTelling[3] + input;
        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
        jTextArea2.setText("Prijs tot nu toe: €" + (df2.format(tussenPrijzen())));
        jTextArea2.setFocusable(false);
@@ -432,13 +502,20 @@ public class KassaOpdracht extends javax.swing.JDialog {
     
     //Method die geinitializeerd wordt als er op jButton6 wordt geklikt
     
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) { 
+        
+    String [] productenLijsteCall;
+    productenLijsteCall = productenLijst();
+    
+    int [] aantalProductenTelling;
+    aantalProductenTelling = aantalProducten();
+        
     int input;
     //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen     
     try
     {
-       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Bier. Voer de hoeveelheid in"));
-       countBier = countBier + input;
+       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: " + productenLijsteCall [4] + ". Voer de hoeveelheid in"));
+       aantalProductenTelling[4] = aantalProductenTelling[4] + input;
        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
        jTextArea2.setText("Prijs tot nu toe: €" + (df2.format(tussenPrijzen())));
        jTextArea2.setFocusable(false);
@@ -454,14 +531,20 @@ public class KassaOpdracht extends javax.swing.JDialog {
     
     //Method die geinitializeerd wordt als er op jButton7 wordt geklikt
     
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) { 
+        
+    String [] productenLijsteCall;
+    productenLijsteCall = productenLijst();
+    
+    int [] aantalProductenTelling;
+    aantalProductenTelling = aantalProducten();
+    
     int input;
     //Er komt een pop-up dialog die de gebruiker een hoeveelheid laat invullen     
     try
     {
-       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Fruit. Voer de hoeveelheid in"));
-       countFruit = countFruit + input;
+       input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: " + productenLijsteCall [5] + ". Voer de hoeveelheid in"));
+       aantalProductenTelling[5] = aantalProductenTelling[5] + input;
        JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
        jTextArea2.setText("Prijs tot nu toe: €" + (df2.format(tussenPrijzen())));
        jTextArea2.setFocusable(false);
