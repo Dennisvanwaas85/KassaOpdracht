@@ -4,7 +4,7 @@
  * Written by Leslie Lauw <18151167> and Dennis van Waas <18>, October 2018
  * The Netherlands - The Hague University 
  * Class: 2B 
- * Group: 08
+ * Group: 09
  */
 package kassaopdracht;
 
@@ -182,7 +182,7 @@ public class KassaOpdracht extends javax.swing.JDialog {
         jTextField1.setText(String.valueOf(tussenPrijs));
         jTextField1.setFocusable(false);
         
-        jTextArea2.setText("Prijs tot nu toe: €" + (tussenPrijs));
+        jTextArea2.setText("Prijs tot nu toe: €" + (tussenPrijzen()));
         jTextArea2.setFocusable(false);
         
 
@@ -253,7 +253,9 @@ public class KassaOpdracht extends javax.swing.JDialog {
     {
        input = Integer.parseInt(JOptionPane.showInputDialog("Gekozen product: Pizza. Voer de hoeveelheid in"));
        countPizza = countPizza + input;
-       JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje"); //Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+       
+       JOptionPane.showMessageDialog(null, "U heeft er " + input + " toegevoegd aan uw winkelwagentje");//Na het invullen krijg je een pop-up message die laat zien hoeveel je er hebt toegevoegd
+        System.out.println(tussenPrijs);
     }
     catch (final NumberFormatException e) //Als je geen cijfer invult (int) krijg je een popup error
     {
@@ -392,6 +394,11 @@ public class KassaOpdracht extends javax.swing.JDialog {
           countKaas = 0;
           countBier = 0;
           countFruit= 0;
+          
+          kortingToepassen = false;
+          jToggleButton1.setSelected(false);
+          jToggleButton1.setText("Korting UIT!");
+          jToggleButton1.setBackground(new java.awt.Color(255, 0, 0));
           JOptionPane.showMessageDialog(null, "Volgende Klant!");
       }
   
